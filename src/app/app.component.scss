@@ -1,0 +1,64 @@
+@mixin flexbox($width, $direction, $justify, $align) {
+    width: $width;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.container {
+    @include flexbox(100%, column, center, center);
+
+    .content {
+        @include flexbox(50%, column, flex-start, flex-start);
+
+        .search-input {
+            @include flexbox(100%, column, center, center);
+            margin-bottom: 25px;
+
+            input {
+                width: 70%;
+                padding: 0.5rem 1rem;
+                font-size: 20px;
+                text-align: center;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .input-note {
+                text-align: center;
+                margin-top: 10px;
+                font-size: 14px;
+            }
+        }
+
+        .table-houses {
+            width: 100%;
+            margin-bottom: 50px;
+
+            table {
+                width: 100%;
+                
+                th, 
+                td { 
+                    text-align: start;
+                    
+                    &.center {
+                        text-align: center;
+                    }
+                }
+
+                th {
+                    font-size: 1.3rem;
+                    padding-bottom: 15px;
+                }
+
+                td {
+                    padding-bottom: 8px;
+                }
+            }
+        }
+    }
+}

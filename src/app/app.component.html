@@ -4,20 +4,21 @@
   </div>
   <div class="content">
     <div class="search-input">
-      <p>Make a search by the country or address to find the house</p>
+      
       <input type="text" [(ngModel)]="searchValue" (ngModelChange)="makeSearch()">
+      <p class="input-note">Find your perfect location by searching typing in a country or specific address</p>
     </div>
     <div class="table-houses">
       <table>
         <tr>
           <th>City</th>
           <th>Address</th>
-          <th>Price</th>
+          <th class="center">Price</th>
         </tr>
         <tr *ngFor="let house of filteredHouses">
           <td>{{ house.country }}</td>
           <td>{{ house.address }}</td>
-          <td>{{ house.price }}</td>
+          <td class="center">$ {{ house.price }}</td>
         </tr>
       </table>
     </div>
