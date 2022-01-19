@@ -16,16 +16,25 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'search-app'`, () => {
+  it(`the filtered list of houses should be the complete list of 100 houses when the component starts`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('search-app');
+    expect(app.filteredHouses.length).toEqual(100);
   });
 
-  it('should render title', () => {
+  it('the filtered list of houses should be the a list of 3 houses when the search value is Poland', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('search-app app is running!');
+    const app = fixture.componentInstance;
+    app.searchValue = 'Poland';
+    app.makeSearch();
+    expect(app.filteredHouses.length).toEqual(3);
+  });
+
+  it('the filtered list of houses should be the a list of 0 houses when the search value is a symbol', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.searchValue = '%';
+    app.makeSearch();
+    expect(app.filteredHouses.length).toEqual(0);
   });
 });

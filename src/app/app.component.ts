@@ -16,16 +16,14 @@ interface House {
 export class AppComponent {
 
   searchValue: string;
-  availableHouses: House[] = houses;
-  filteredHouses: House[] = [];
+  filteredHouses: House[] = houses;
   
   constructor() {
     this.searchValue = '';
-    this.filteredHouses = this.availableHouses;
   }
 
   makeSearch() {
-    this.filteredHouses = this.availableHouses.filter((house: House) => {
+    this.filteredHouses = houses.filter((house: House) => {
       return (house.country.includes(this.searchValue) || house.address.includes(this.searchValue));
     });
   }
