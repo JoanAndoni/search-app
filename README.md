@@ -6,9 +6,14 @@ In this project we used the following node version: `v14.18.2` so we would recom
 
 ## Installation
 
+Clone the project
 1. `git clone https://github.com/JoanAndoni/search-app.git`
+Change into the directory of the project
 2. `cd search-app`
+Install the packages for the project
 3. `npm i`
+
+* After the installation you will be able to run the development server.
 
 ## Development server
 
